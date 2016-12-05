@@ -8,4 +8,5 @@ public class Owner {
     String middleName;
     String lastName;
     List<Account> accounts;
+    long userId;
 }
