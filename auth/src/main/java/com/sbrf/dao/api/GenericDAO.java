@@ -1,4 +1,4 @@
-package dao.api;
+package com.sbrf.dao.api;
 
 public interface GenericDAO<T> {
     long create(T t);

@@ -1,6 +1,6 @@
-package dao.api;
+package com.sbrf.dao.api;
 
-import dao.model.User;
+import com.sbrf.dao.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
@@ -50,6 +50,6 @@ public class UserDAO implements GenericDAO<User> {
     public boolean checkByLogin(String login) {
         String sql = "SELECT COUNT(*) FROM user WHERE login = ?";
         int countOfLogin = jdbcTemplate.queryForObject(sql, Integer.class, login);
-        return countOfLogin == 1;
+        return countOfLogin >= 1;
     }
 }

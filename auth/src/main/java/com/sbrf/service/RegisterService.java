@@ -1,6 +1,6 @@
-package service;
+package com.sbrf.service;
 
-import dao.model.User;
+import com.sbrf.dao.model.User;
 
 public interface RegisterService {
     boolean checkLoginIsNotUsed(String login);

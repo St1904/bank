@@ -1,9 +1,13 @@
-package dao.model;
+package com.sbrf.dao.model;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     long id;
     String login;
     String password;
+
+    public User() {}
 
     public User(long id, String login, String password) {
         this.id = id;

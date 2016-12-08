@@ -1,7 +1,7 @@
-package service;
+package com.sbrf.service;
 
-import dao.api.UserDAO;
-import dao.model.User;
+import com.sbrf.dao.api.UserDAO;
+import com.sbrf.dao.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class RegisterServiceImpl implements RegisterService {

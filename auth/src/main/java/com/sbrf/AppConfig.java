@@ -1,4 +1,4 @@
-package util;
+package com.sbrf;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,13 +1,10 @@
-package util;
+package com.sbrf;
 
-import dao.api.UserDAO;
-import dao.model.User;
+import com.sbrf.dao.api.UserDAO;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
-import service.RegisterService;
-import service.RegisterServiceImpl;
 
 @SpringBootApplication
 public class Application {
@@ -19,13 +16,15 @@ public class Application {
         JdbcTemplate jdbcTemplate = appConfig.jdbcTemplate(appConfig.dataSource());
 
 //        jdbcTemplate.execute("insert into user (login, password) values ('vasya', '11')");
-        UserDAO userDAO = new UserDAO(jdbcTemplate, appConfig.dataSource());
+//        UserDAO userDAO = new UserDAO(jdbcTemplate, appConfig.dataSource());
 //        System.out.println(userDAO.checkByLogin("St"));
 //        System.out.println(userDAO.checkByLogin("St1"));
-        RegisterService registerService = new RegisterServiceImpl(userDAO);
-        System.out.println(registerService.checkLoginIsNotUsed("St"));
-        System.out.println(registerService.checkLoginIsNotUsed("St1"));
-        System.out.println(registerService.addUser(new User("St", "1111")));
+//        RegisterService registerService = new RegisterServiceImpl(userDAO);
+//        System.out.println(registerService.checkLoginIsNotUsed("St"));
+//        System.out.println(registerService.checkLoginIsNotUsed("St1"));
+//        System.out.println(registerService.addUser(new User("St", "1111")));
+        UserDAO userDAO = applicationContext.getBean(UserDAO.class);
+        System.out.println(userDAO.checkByLogin("St"));
 
     }
 }

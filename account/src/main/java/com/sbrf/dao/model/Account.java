@@ -1,4 +1,4 @@
-package dao.model;
+package com.sbrf.dao.model;
 
 import java.math.BigDecimal;
 
