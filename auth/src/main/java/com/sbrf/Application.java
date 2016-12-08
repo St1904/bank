@@ -23,7 +23,10 @@ public class Application {
 //        System.out.println(registerService.checkLoginIsNotUsed("St1"));
 //        System.out.println(registerService.addUser(new User("St", "1111")));
         UserDAO userDAO = applicationContext.getBean(UserDAO.class);
-        System.out.println(userDAO.checkByLogin("St"));
+//        System.out.println(userDAO.checkByLogin("St"));
+//        userDAO.create(new User("petya", "123"));
+
+//        System.out.println(userDAO.read(3));
 
     }
 }

@@ -2,6 +2,7 @@ package com.sbrf.dao.api;
 
 import com.sbrf.dao.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -34,7 +35,9 @@ public class UserDAO implements GenericDAO<User> {
 
     @Override
     public User read(long id) {
-        return null;
+        return (User) jdbcTemplate.queryForObject("SELECT id, login, password FROM user WHERE id = ?",
+                new Object[] {id},
+                new BeanPropertyRowMapper(User.class));
     }
 
     @Override

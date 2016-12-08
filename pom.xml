@@ -13,6 +13,15 @@
         <module>auth</module>
     </modules>
 
+    <properties>
+        <jdk.version>1.8</jdk.version>
+        <springframework.version>4.3.0.RELEASE</springframework.version>
+        <spring.data.jpa.version>1.9.4.RELEASE</spring.data.jpa.version>
+        <hibernate.version>4.3.10.Final</hibernate.version>
+        <h2.version>1.4.191</h2.version>
+        <hicari.pool.version>2.4.6</hicari.pool.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -23,6 +32,17 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
             <version>1.4.2.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate.version}</version>
         </dependency>
     </dependencies>
 

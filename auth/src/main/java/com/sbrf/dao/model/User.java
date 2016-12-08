@@ -1,10 +1,22 @@
 package com.sbrf.dao.model;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
+@Entity
+@Table(name = "user")
 public class User implements Serializable {
+    private static final long serialVersionUID = -8568681083447054748L;
+
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
     long id;
+
+    @Column(name = "login")
     String login;
+
+    @Column(name = "password")
     String password;
 
     public User() {}
