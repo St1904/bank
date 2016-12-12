@@ -21,7 +21,7 @@ public class OwnerDAO implements GenericDAO<Owner> {
 
     @Override
     public long create(Owner owner) {
-        String sql = "INSERT INTO user(firstName, middleName, lastName, user_id) VALUES(:firstName, :middleName, :lastName, :user_id)";
+        String sql = "INSERT INTO owner(firstName, middleName, lastName, user_id) VALUES(:firstName, :middleName, :lastName, :userId)";
         SqlParameterSource sqlParameterSource = new BeanPropertySqlParameterSource(owner);
         KeyHolder keyHolder = new GeneratedKeyHolder();
         namedParameterJdbcTemplate.update(sql, sqlParameterSource, keyHolder);
