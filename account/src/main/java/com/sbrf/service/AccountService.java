@@ -1,4 +1,4 @@
-package service;
+package com.sbrf.service;
 
 public interface AccountService {
     void putMoney();

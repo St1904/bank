@@ -2,6 +2,7 @@ package com.sbrf.dao.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.security.acl.Owner;
 
 @Entity
 @Table(name = "user")
@@ -19,12 +20,16 @@ public class User implements Serializable {
     @Column(name = "password")
     String password;
 
+    @OneToOne(mappedBy = "user_id")
+    Owner owner;
+
     public User() {}
 
-    public User(long id, String login, String password) {
+    public User(long id, String login, String password, Owner owner) {
         this.id = id;
         this.login = login;
         this.password = password;
+        this.owner = owner;
     }
 
     public User(String login, String password) {
