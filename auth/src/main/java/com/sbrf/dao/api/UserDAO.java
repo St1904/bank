@@ -42,7 +42,8 @@ public class UserDAO implements GenericDAO<User> {
 
     @Override
     public void update(User user) {
-
+        String sql = "UPDATE user SET login = ?, password = ? WHERE id = ?";
+        jdbcTemplate.update(sql, user.getLogin(), user.getPassword(), user.getId());
     }
 
     @Override

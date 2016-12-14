@@ -1,11 +1,13 @@
 package com.sbrf.dao.model;
 
 import javax.persistence.*;
-import java.util.List;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "owner")
-public class Owner {
+public class Owner implements Serializable {
     private static final long serialVersionUID = -8568681083447054748L;
 
     @Id
@@ -22,8 +24,8 @@ public class Owner {
     @Column(name = "lastName")
     String lastName;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "owner_id")
-    List<Account> accounts;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "owner_id")
+    Set<Account> accounts;
 
     @OneToOne
     @JoinColumn(name = "user_id")
@@ -32,7 +34,7 @@ public class Owner {
     public Owner() {
     }
 
-    public Owner(long id, String firstName, String middleName, String lastName, List<Account> accounts, long userId) {
+    public Owner(long id, String firstName, String middleName, String lastName, Set<Account> accounts, long userId) {
         this.id = id;
         this.firstName = firstName;
         this.middleName = middleName;
@@ -46,10 +48,15 @@ public class Owner {
         this.middleName = middleName;
         this.lastName = lastName;
         this.userId = userId;
+        this.accounts = new HashSet<>();
     }
 
     public long getId() {
         return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -76,11 +83,11 @@ public class Owner {
         this.lastName = lastName;
     }
 
-    public List<Account> getAccounts() {
+    public Set<Account> getAccounts() {
         return accounts;
     }
 
-    public void setAccounts(List<Account> accounts) {
+    public void setAccounts(Set<Account> accounts) {
         this.accounts = accounts;
     }
 
@@ -90,5 +97,17 @@ public class Owner {
 
     public void setUserId(long userId) {
         this.userId = userId;
+    }
+
+    @Override
+    public String toString() {
+        return "Owner{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", middleName='" + middleName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", accounts=" + accounts +
+                ", userId=" + userId +
+                '}';
     }
 }

@@ -1,6 +1,8 @@
 package com.sbrf.dao.api;
 
 import com.sbrf.dao.model.Owner;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -14,6 +16,7 @@ public class OwnerDAO implements GenericDAO<Owner> {
     private final JdbcTemplate jdbcTemplate;
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
+    @Autowired
     public OwnerDAO(JdbcTemplate jdbcTemplate, NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
         this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
@@ -30,7 +33,9 @@ public class OwnerDAO implements GenericDAO<Owner> {
 
     @Override
     public Owner read(long id) {
-        return null;
+        return (Owner) jdbcTemplate.queryForObject("SELECT id, firstName, middleName, lastName, user_id FROM owner WHERE id = ?",
+                new Object[] {id},
+                new BeanPropertyRowMapper(Owner.class));
     }
 
     @Override

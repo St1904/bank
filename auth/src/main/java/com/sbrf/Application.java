@@ -1,7 +1,6 @@
 package com.sbrf;
 
 import com.sbrf.dao.api.UserDAO;
-import com.sbrf.dao.model.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -25,8 +24,12 @@ public class Application {
 //        System.out.println(registerService.addUser(new User("St", "1111")));
         UserDAO userDAO = applicationContext.getBean(UserDAO.class);
 //        System.out.println(userDAO.checkByLogin("St"));
-        userDAO.create(new User("petya", "123"));
-
+//        userDAO.create(new User("petya", "123"));
+//        User user = userDAO.read(1);
+//        user.setLogin("Petya");
+//        user.setPassword("1112");
+//        System.out.println(user);
+//        userDAO.update(user);
 //        System.out.println(userDAO.read(3));
 
     }

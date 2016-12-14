@@ -41,6 +41,10 @@ public class User implements Serializable {
         return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public String getLogin() {
         return login;
     }
@@ -55,6 +59,14 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Owner getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Owner owner) {
+        this.owner = owner;
     }
 
     @Override

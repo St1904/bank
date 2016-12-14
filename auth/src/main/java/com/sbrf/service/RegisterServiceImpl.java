@@ -3,7 +3,9 @@ package com.sbrf.service;
 import com.sbrf.dao.api.UserDAO;
 import com.sbrf.dao.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class RegisterServiceImpl implements RegisterService {
     private final UserDAO userDAO;
 
