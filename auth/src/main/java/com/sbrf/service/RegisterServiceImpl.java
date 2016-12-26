@@ -20,6 +20,11 @@ public class RegisterServiceImpl implements RegisterService {
     }
 
     @Override
+    public User readByLogin(String login) {
+        return userDAO.readByLogin(login);
+    }
+
+    @Override
     public long addUser(User user) {
         long id = 0;
         if (checkLoginIsNotUsed(user.getLogin())) {

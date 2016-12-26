@@ -56,4 +56,16 @@ public class UserDAO implements GenericDAO<User> {
         int countOfLogin = jdbcTemplate.queryForObject(sql, Integer.class, login);
         return countOfLogin >= 1;
     }
+
+    public User readByLogin(String login) {
+        return  (User) jdbcTemplate.queryForObject("SELECT id, login, password FROM user WHERE login = ?",
+                new Object[] {login},
+                new BeanPropertyRowMapper(User.class));
+    }
+
+    public User findByLoginAndPassword(String login, String password) {
+        return  (User) jdbcTemplate.queryForObject("SELECT id, login, password FROM user WHERE login = ? AND password = ?",
+                new Object[] {login, password},
+                new BeanPropertyRowMapper(User.class));
+    }
 }
